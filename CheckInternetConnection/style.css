@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+}
+body{
+    background-color: #E3F2FD;
+}
+.popup{
+    position: absolute;
+    left: 50%;
+    top:-75%;
+    visibility: hidden;
+    background-color: #fff;
+    width: 48%;
+    border-radius: 5px;
+    padding: 13px 17px 20px;
+    box-shadow: 0 10px 25px rgba(52, 87, 220, 0.1);
+    border-top: 3px solid #EA4D67;
+    display: flex;
+    transform: translateX(-50%);
+    transition: all 1.00s ease;
+}
+.popup.show{
+    top:25%;
+    visibility: visible;
+}
+.popup.online{
+    border-color: green;
+}
+
+.popup .icon i{
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 15px;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 1.2rem;
+    background-color: #EA4D67;
+}
+.popup.online .icon i{
+    background-color: green;
+}
+.popup .title{
+    font-size: 1.2rem;
+}
+.popup .desc{
+    font-size: 1.04rem;
+    margin: 3px 0 10px;
+    color: #474747;
+}
+.popup .reconnect{
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: #fff;
+    padding: 9px 15px;
+    font-size: 0.95rem;
+    border-radius: 4px;
+    background-color: #5372F0;
+}
+.popup.online .reconnect{
+    background-color: #bfbfbf;
+    pointer-events: none;
+}
