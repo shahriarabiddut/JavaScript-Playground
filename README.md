@@ -8,5 +8,5 @@ JavaScript Little Projects!
 4. Javascript QR Code Generator
 5. Javascript Text Typing Effect
 6. Javascript Month Calander
-7. Javascript Basic
+7. Javascript Color Pallete Generator
 8. Javascript Basic
