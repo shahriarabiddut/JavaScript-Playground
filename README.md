@@ -11,3 +11,5 @@ JavaScript Little Projects!
 7. Javascript Color Pallete Generator
 8. Javascript Rock Paper Scissor Game
 9. Javascript ScreenShot
+10. Javascript Search Filter
+11. Javascript Mouse Event

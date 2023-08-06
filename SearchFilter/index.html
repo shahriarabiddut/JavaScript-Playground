@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+    <title>Search Filter</title>
+  </head>
+  <body>
+    <h1>Search Filter</h1>
+    <div class="input-group flex-nowrap">
+      <span class="input-group-text" id="addon-wrapping">Name</span>
+      <input
+        type="text"
+        name=""
+        id="myInput"
+        placeholder="Search For Names"
+        onkeyup="searchFun()"
+      />
+      <span class="input-group-text" id="addon-wrapping">Degree</span>
+      <input
+        type="text"
+        name=""
+        id="myInputDegree"
+        placeholder="Search For Names"
+        onkeyup="searchDegree()"
+      />
+    </div>
+
+    <table
+      id="myTable"
+      class="table table-hover table-primary text-center table-striped"
+    >
+      <tr class="header table-primary">
+        <th style="width: 40%">Name</th>
+        <th style="width: 20%">Degree</th>
+        <th style="width: 40%">Proffession</th>
+      </tr>
+      <tr>
+        <td>Vinod</td>
+        <td>MSC</td>
+        <td>Ful Stack Developer</td>
+      </tr>
+      <tr>
+        <td>Ram</td>
+        <td>BSC</td>
+        <td>Ful Stack Developer</td>
+      </tr>
+      <tr>
+        <td>Ramesh</td>
+        <td>SSC</td>
+        <td>Ful Stack Developer</td>
+      </tr>
+      <tr>
+        <td>Rajesh</td>
+        <td>JSC</td>
+        <td>Ful Stack Developer</td>
+      </tr>
+      <tr>
+        <td>Ramiya</td>
+        <td>MSC</td>
+        <td>Ful Stack Developer</td>
+      </tr>
+      <tr>
+        <td>Papon</td>
+        <td>BSC</td>
+        <td>Ful Stack Developer</td>
+      </tr>
+      <tr>
+        <td>Akash</td>
+        <td>SSC</td>
+        <td>Ful Stack Developer</td>
+      </tr>
+      <tr>
+        <td>Biddut</td>
+        <td>MSC</td>
+        <td>Ful Stack Developer</td>
+      </tr>
+      <tr>
+        <td>Pritom</td>
+        <td>PSC</td>
+        <td>Ful Stack Developer</td>
+      </tr>
+      <tr>
+        <td>Bidushi</td>
+        <td>HSC</td>
+        <td>Ful Stack Developer</td>
+      </tr>
+    </table>
+  </body>
+</html>
