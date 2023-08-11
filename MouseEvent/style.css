@@ -1,0 +1,45 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background-color: darkblue;
+  color: white;
+  font-family: cursive;
+}
+.container {
+  display: flex;
+  text-align: center;
+}
+.mouse-event {
+  border: 1px solid lightgray;
+  margin: 20px;
+  padding: 20px;
+  min-width: 150px;
+  min-height: 100px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+}
+.mouse-event h4 {
+  position: absolute;
+  top: -20%;
+  left: 50%;
+  font-size: 14px;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font-weight: 100;
+  color: lightgray;
+}
+@media (max-width: 500px) {
+  .container {
+    flex-direction: column;
+  }
+}
