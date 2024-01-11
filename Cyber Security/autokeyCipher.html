@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Autokey Cipher</title>
+  </head>
+  <body>
+    <h2>Autokey Cipher</h2>
+    <label for="inputText">Enter text:</label>
+    <input id="inputText" placeholder="Enter your text" />
+    <br />
+    <label for="key">Enter key (alphabetic characters only):</label>
+    <input type="text" id="key" placeholder="(alphabetic characters only)" />
+    <br />
+    <br />
+    <button onclick="encrypt()">Encrypt</button>
+    <button onclick="decrypt()">Decrypt</button>
+    <br />
+
+    <label for="outputText">Result:</label><br />
+    <textarea id="outputText" rows="4" cols="50" readonly></textarea>
+
+    <script>
+      function encrypt() {
+        let inputText = document
+          .getElementById("inputText")
+          .value.toUpperCase();
+        let key = document.getElementById("key").value.toUpperCase();
+        let outputText = "";
+
+        let j = 0;
+
+        for (let i = 0; i < inputText.length; i++) {
+          let charCode = inputText.charCodeAt(i);
+
+          if (isUpperCase(charCode)) {
+            let keyChar = key.charCodeAt(j % key.length);
+            outputText += String.fromCharCode(
+              ((charCode + keyChar - 2 * 65) % 26) + 65
+            );
+            j++;
+          } else {
+            outputText += inputText.charAt(i);
+          }
+        }
+
+        document.getElementById("outputText").value = outputText;
+      }
+
+      function decrypt() {
+        let inputText = document
+          .getElementById("inputText")
+          .value.toUpperCase();
+        let key = document.getElementById("key").value.toUpperCase();
+        let outputText = "";
+
+        let j = 0;
+
+        for (let i = 0; i < inputText.length; i++) {
+          let charCode = inputText.charCodeAt(i);
+
+          if (isUpperCase(charCode)) {
+            let keyChar = key.charCodeAt(j % key.length);
+            outputText += String.fromCharCode(
+              ((charCode - keyChar + 26) % 26) + 65
+            );
+            j++;
+          } else {
+            outputText += inputText.charAt(i);
+          }
+        }
+
+        document.getElementById("outputText").value = outputText;
+      }
+
+      function isUpperCase(charCode) {
+        return charCode >= 65 && charCode <= 90;
+      }
+    </script>
+  </body>
+</html>

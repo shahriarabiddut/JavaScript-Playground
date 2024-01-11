@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rail Fence Cipher</title>
+  </head>
+  <body>
+    <h2>Rail Fence Cipher</h2>
+
+    <label for="rails">Number of Rails:</label>
+    <input
+      type="number"
+      id="rails"
+      placeholder="Enter number of rails"
+      min="1"
+    />
+    <br />
+
+    <label for="inputText">Enter text:</label>
+    <input id="inputText" placeholder="Enter your text" />
+    <br />
+    <br />
+
+    <button onclick="encrypt()">Encrypt</button>
+    <button onclick="decrypt()">Decrypt</button>
+    <br />
+
+    <label for="outputText">Result:</label>
+    <br />
+    <textarea id="outputText" rows="4" cols="50" readonly></textarea>
+
+    <script>
+      function encrypt() {
+        var rails = parseInt(document.getElementById("rails").value);
+        var inputText = document.getElementById("inputText").value;
+        var outputText = "";
+
+        var matrix = new Array(rails);
+        for (var i = 0; i < rails; i++) {
+          matrix[i] = new Array(inputText.length).fill(".");
+        }
+
+        var direction = 1; // 1 for down, -1 for up
+        var row = 0;
+
+        for (var i = 0; i < inputText.length; i++) {
+          matrix[row][i] = inputText.charAt(i);
+
+          if (row === 0) {
+            direction = 1;
+          } else if (row === rails - 1) {
+            direction = -1;
+          }
+
+          row += direction;
+        }
+
+        for (var i = 0; i < rails; i++) {
+          for (var j = 0; j < inputText.length; j++) {
+            if (matrix[i][j] !== ".") {
+              outputText += matrix[i][j];
+            }
+          }
+        }
+
+        document.getElementById("outputText").value = outputText;
+      }
+
+      function decrypt() {
+        var rails = parseInt(document.getElementById("rails").value);
+        var inputText = document.getElementById("inputText").value;
+        var outputText = "";
+
+        var matrix = new Array(rails);
+        for (var i = 0; i < rails; i++) {
+          matrix[i] = new Array(inputText.length).fill(".");
+        }
+
+        var direction = 1;
+        var row = 0;
+
+        for (var i = 0; i < inputText.length; i++) {
+          matrix[row][i] = "*";
+
+          if (row === 0) {
+            direction = 1;
+          } else if (row === rails - 1) {
+            direction = -1;
+          }
+
+          row += direction;
+        }
+
+        var index = 0;
+        for (var i = 0; i < rails; i++) {
+          for (var j = 0; j < inputText.length; j++) {
+            if (matrix[i][j] === "*") {
+              matrix[i][j] = inputText.charAt(index++);
+            }
+          }
+        }
+
+        direction = 1;
+        row = 0;
+
+        for (var i = 0; i < inputText.length; i++) {
+          outputText += matrix[row][i];
+
+          if (row === 0) {
+            direction = 1;
+          } else if (row === rails - 1) {
+            direction = -1;
+          }
+
+          row += direction;
+        }
+
+        document.getElementById("outputText").value = outputText;
+      }
+    </script>
+  </body>
+</html>

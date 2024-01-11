@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Caesar Cipher</title>
+  </head>
+  <body>
+    <h2>Caesar Cipher Encryption</h2>
+
+    <label for="originalText">Input Text:</label>
+    <input type="text" id="originalText" />
+
+    <label for="shiftAmount">Shift Amount:</label>
+    <input type="number" id="shiftAmount" />
+
+    <button onclick="encryptText()">Encrypt</button>
+    <button onclick="decryptText()">Decrypt</button>
+
+    <p id="encryptedText"></p>
+
+    <script>
+      function caesarCipher(str, shift) {
+        const alphabet = "abcdefghijklmnopqrstuvwxyz";
+        let result = "";
+
+        for (let i = 0; i < str.length; i++) {
+          let char = str[i].toLowerCase();
+
+          if (alphabet.includes(char)) {
+            let newIndex = (alphabet.indexOf(char) + shift) % 26;
+            if (newIndex < 0) newIndex += 26;
+
+            if (str[i] === str[i].toUpperCase()) {
+              result += alphabet[newIndex].toUpperCase();
+            } else {
+              result += alphabet[newIndex];
+            }
+          } else {
+            result += str[i];
+          }
+        }
+
+        return result;
+      }
+
+      function encryptText() {
+        const originalText = document.getElementById("originalText").value;
+        const shiftAmount = parseInt(
+          document.getElementById("shiftAmount").value
+        );
+        const encryptedText = caesarCipher(originalText, shiftAmount);
+        document.getElementById("encryptedText").innerHTML =
+          "Encryption - Original Text (Input): " +
+          originalText +
+          " & Encrypted Text (Output): " +
+          encryptedText;
+      }
+      function decryptCaesarCipher(str, shift) {
+        const alphabet = "abcdefghijklmnopqrstuvwxyz";
+        let result = "";
+
+        for (let i = 0; i < str.length; i++) {
+          let char = str[i].toLowerCase();
+
+          if (alphabet.includes(char)) {
+            let newIndex = (alphabet.indexOf(char) - shift) % 26;
+            if (newIndex < 0) newIndex += 26;
+
+            if (str[i] === str[i].toUpperCase()) {
+              result += alphabet[newIndex].toUpperCase();
+            } else {
+              result += alphabet[newIndex];
+            }
+          } else {
+            result += str[i];
+          }
+        }
+
+        return result;
+      }
+
+      function decryptText() {
+        const originalText = document.getElementById("originalText").value;
+        const shiftAmount = parseInt(
+          document.getElementById("shiftAmount").value
+        );
+        const encryptedText = decryptCaesarCipher(originalText, shiftAmount);
+        document.getElementById("encryptedText").innerHTML =
+          "Decryption - Original Text(Output): " +
+          encryptedText +
+          " & Encrypted Text(Input): " +
+          originalText;
+      }
+    </script>
+  </body>
+</html>
